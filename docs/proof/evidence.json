@@ -1,0 +1,98 @@
+{
+  "schema": 1,
+  "repository": "brunnojob/swift-offshore-commissioning-evidence",
+  "source_commit": "b83ff64a08f45bffcb6a1f6e6153e30df2c3e908",
+  "generated_at": "2026-10-10T02:36:55.912939+00:00",
+  "run_url": "https://github.com/brunnojob/swift-offshore-commissioning-evidence/actions/runs/38017599344",
+  "inputs_sha256": {
+    ".proof/scenarios.json": "d0150c07ee593ad4b7801d004398305b18d88118e7fc187392ba277da576d4f8",
+    "examples/input.txt": "56114d8d2bf0e3579e52cb9326c8b0ea69a7603643ae18fa9acf8f1fe7e631fe"
+  },
+  "cases": [
+    {
+      "display": false,
+      "name": "swiftc Sources/main.swift -o app && ./app --self-test && ./app < examples/input.txt",
+      "argv": [
+        "bash",
+        "-e",
+        "-o",
+        "pipefail",
+        "-c",
+        "swiftc Sources/main.swift -o app && ./app --self-test && ./app < examples/input.txt"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "seconds": 7.465,
+      "output": "Tests passed\n{\"accepted\":true,\"id\":\"insulation\",\"reasons\":[]}\n{\"accepted\":true,\"id\":\"loop-check\",\"reasons\":[]}\n{\"accepted\":false,\"id\":\"valve-stroke\",\"reasons\":[\"OUT_OF_RANGE\"]}\n{\"accepted\":false,\"id\":\"startup\",\"reasons\":[\"BLOCKED:valve-stroke\",\"PENDING\"]}\n",
+      "output_sha256": "0793516d64e1e69da131a840b84b18109b938f78b754b8f5b6ef33e973c61c79"
+    },
+    {
+      "display": true,
+      "name": "Application demonstration with checked output",
+      "argv": [
+        "./app"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "seconds": 0.091,
+      "output": "{\"accepted\":true,\"id\":\"insulation\",\"reasons\":[]}\n{\"accepted\":true,\"id\":\"loop-check\",\"reasons\":[]}\n{\"accepted\":false,\"id\":\"valve-stroke\",\"reasons\":[\"OUT_OF_RANGE\"]}\n{\"accepted\":false,\"id\":\"startup\",\"reasons\":[\"BLOCKED:valve-stroke\",\"PENDING\"]}\n",
+      "output_sha256": "e5c11fb06a9f0eb6eac6eb6325e662ebd447afb695cc8175314ae925653c261a"
+    },
+    {
+      "display": true,
+      "name": "Reject an empty capture",
+      "argv": [
+        "./app"
+      ],
+      "exit": 2,
+      "expected_exit": 2,
+      "passed": true,
+      "seconds": 0.107,
+      "output": "Missing input\n",
+      "output_sha256": "59dde097c155045b6510b44b5d0ee86176974b3476c8b96718ac676f66134e97"
+    },
+    {
+      "display": true,
+      "name": "Reject malformed input",
+      "argv": [
+        "./app"
+      ],
+      "exit": 2,
+      "expected_exit": 2,
+      "passed": true,
+      "seconds": 0.097,
+      "output": "Invalid CSV row\n",
+      "output_sha256": "64aaf8a3f81772044320e6481a9fe33ac80bfdb41f6deb590512cd62c2cd30b7"
+    },
+    {
+      "display": true,
+      "name": "Reject unsupported invocation",
+      "argv": [
+        "./app",
+        "--unsupported"
+      ],
+      "exit": 2,
+      "expected_exit": 2,
+      "passed": true,
+      "seconds": 0.077,
+      "output": "Unsupported command arguments\n",
+      "output_sha256": "a7217611e9bf4e2fd5cbbd1b8b97c5898f154b14da948e9e35008b59b8158bcd"
+    },
+    {
+      "display": true,
+      "name": "Reject an oversized input record",
+      "argv": [
+        "./app"
+      ],
+      "exit": 2,
+      "expected_exit": 2,
+      "passed": true,
+      "seconds": 0.108,
+      "output": "Input record too large\n",
+      "output_sha256": "45eb187fdae97f09b79c4bcd5c03d9b942872125e5fb5b6a83011b36f8d62333"
+    }
+  ],
+  "passed": true
+}

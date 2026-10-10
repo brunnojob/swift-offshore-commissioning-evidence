@@ -1,0 +1,24 @@
+$ bash -e -o pipefail -c swiftc Sources/main.swift -o app && ./app --self-test && ./app < examples/input.txt
+Tests passed
+{"accepted":true,"id":"insulation","reasons":[]}
+{"accepted":true,"id":"loop-check","reasons":[]}
+{"accepted":false,"id":"valve-stroke","reasons":["OUT_OF_RANGE"]}
+{"accepted":false,"id":"startup","reasons":["BLOCKED:valve-stroke","PENDING"]}
+
+$ ./app
+{"accepted":true,"id":"insulation","reasons":[]}
+{"accepted":true,"id":"loop-check","reasons":[]}
+{"accepted":false,"id":"valve-stroke","reasons":["OUT_OF_RANGE"]}
+{"accepted":false,"id":"startup","reasons":["BLOCKED:valve-stroke","PENDING"]}
+
+$ ./app
+Missing input
+
+$ ./app
+Invalid CSV row
+
+$ ./app --unsupported
+Unsupported command arguments
+
+$ ./app
+Input record too large
