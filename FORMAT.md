@@ -1,0 +1,1 @@
+CSV: check,dependencies separated by | or -,PASS|FAIL|PENDING,measured,lower,upper,evidence-age-hours. Acceptance needs passed dependencies, in-range measurement and evidence age <=24 h. No digital signature or certification is implied.

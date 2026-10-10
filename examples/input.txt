@@ -1,0 +1,4 @@
+insulation,-,PASS,100,50,1000,2
+loop-check,insulation,PASS,12,11.9,12.1,3
+valve-stroke,loop-check,PASS,22,0,20,1
+startup,valve-stroke,PENDING,0,0,1,0
